@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#111111">
+<title>Burgerownia &amp; Chińczyk | Garwolin, Kościuszki 49J</title>
+<meta name="description" content="Makieta strony Burgerownia &amp; Chińczyk w Garwolinie: smash burgery i kuchnia chińska pod jednym dachem. Menu, zestaw Dwa Światy, dojazd.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<style>
+/* Burgerownia & Chińczyk: plakat z dwóch zdjęć. Hero = dwa pełnoekranowe zdjęcia rozdzielone przeciąganą krawędzią.
+   Wybór kuchni przełącza kolor całej strony. Menu jak tablica w lokalu: wiersze, kropki do ceny, zdjęcie przy najechaniu.
+   Zestaw Dwa Światy, dojazd. Typografia: Archivo Extra Condensed 900, wielkie litery jak na plakacie. */
+:root{
+  --gut:clamp(16px,5vw,64px);
+  --f:'Archivo','Arial Narrow',sans-serif;
+  --ink:#111;--paper:#f6f4f1;
+  --b:#ffc21a;   /* musztarda */
+  --c:#d3201a;   /* lakier */
+  --ac:var(--b);--acTx:#111;
+}
+html[data-w=c]{--ac:var(--c);--acTx:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:var(--f);font-size:17px;line-height:1.5;color:#fff;background:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-underline-offset:4px}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.cond{font-stretch:62%;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.86}
+h2{font-size:clamp(52px,9vw,128px)}
+.wrap{max-width:1240px;margin:0 auto}
+.sec{padding:clamp(70px,11vh,120px) var(--gut);scroll-margin-top:56px}
+
+/* pasek */
+.top{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px var(--gut);transition:background .3s}
+.top.solid{background:rgba(17,17,17,.94)}
+.logo{font-size:22px;text-decoration:none}
+.logo b{color:var(--ac);transition:color .4s}
+.sw{display:flex;border:2px solid #fff}
+.sw button{border:0;background:none;padding:7px 14px;font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;transition:background .3s,color .3s}
+.sw button[aria-pressed=true]{background:#fff;color:#111}
+.tel{font-weight:800;font-size:15px;text-decoration:none;letter-spacing:.02em}
+@media(max-width:640px){.tel{display:none}.logo{font-size:18px}}
+
+/* HERO */
+.hero{position:relative;height:100svh;min-height:580px;overflow:hidden;user-select:none;-webkit-user-select:none;--x:50%;background:#111}
+.side{position:absolute;inset:0}
+.side img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:drift 22s ease-in-out infinite alternate}
+.side.b img{object-position:30% 50%;width:62%}
+.side.c{clip-path:inset(0 0 0 var(--x))}
+.side.c img{left:auto;right:0;width:62%;object-position:50% 50%;animation-delay:-11s}
+.side::after{content:"";position:absolute;inset:0;pointer-events:none}
+.side.b::after{background:linear-gradient(0deg,rgba(0,0,0,.78),rgba(0,0,0,.05) 55%),linear-gradient(90deg,transparent 40%,#111 62%)}
+.side.c::after{background:linear-gradient(0deg,rgba(60,0,0,.8),rgba(0,0,0,.05) 55%),linear-gradient(270deg,transparent 40%,#7a0d0a 62%)}
+.side.b{background:#111}.side.c{background:#7a0d0a}
+@keyframes drift{from{transform:scale(1.02)}to{transform:scale(1.12) translate(-1.5%,-1%)}}
+.label{position:absolute;bottom:clamp(36px,8vh,80px);z-index:2;max-width:48%}
+.side.b .label{left:var(--gut)}
+.side.c .label{right:var(--gut);text-align:right}
+.label .h{font-size:clamp(64px,10.5vw,170px)}
+.rows .nm small{display:inline-block;width:100%}
+.side.b .h{color:var(--b)}
+.side.c .h{color:#fff}
+.label p{margin-top:12px;font-size:clamp(15px,1.4vw,19px);color:#eee;max-width:30ch}
+.side.c .label p{margin-left:auto}
+.label button{margin-top:16px;border:2px solid #fff;background:none;color:#fff;font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:14px;padding:13px 20px;cursor:pointer;transition:background .2s,color .2s}
+.label button:hover{background:#fff;color:#111}
+.ph-note{position:absolute;top:74px;z-index:2;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(0,0,0,.55);padding:4px 8px}
+.side.b .ph-note{left:var(--gut)}.side.c .ph-note{right:var(--gut)}
+.steam{position:absolute;z-index:1;width:120px;height:240px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.28),transparent 65%);filter:blur(10px);bottom:30%;opacity:0;animation:steam 6s ease-out infinite}
+.steam.s1{right:22%}.steam.s2{right:34%;animation-delay:2s}.steam.s3{right:12%;animation-delay:4s}
+@keyframes steam{0%{opacity:0;transform:translateY(40px) scale(.6)}30%{opacity:1}100%{opacity:0;transform:translateY(-200px) scale(1.4)}}
+.seam{position:absolute;top:0;bottom:0;left:var(--x);width:0;z-index:5}
+.seam::before{content:"";position:absolute;top:0;bottom:0;left:-1px;width:3px;background:#fff}
+.knob{position:absolute;top:44%;left:0;width:58px;height:58px;margin:-29px 0 0 -29px;background:#fff;color:#111;border:0;border-radius:50%;cursor:ew-resize;touch-action:none;display:grid;place-items:center}
+.knob svg{width:30px;height:30px}
+.amp{position:absolute;left:var(--x);top:calc(44% - 120px);transform:translateX(-50%);z-index:4;font-size:96px;font-weight:900;color:#fff;line-height:1;pointer-events:none;text-shadow:0 4px 30px rgba(0,0,0,.5)}
+@media(max-width:700px){.label{max-width:46%}.label p{display:none}.label .h{font-size:clamp(44px,13.5vw,80px)}.label button{padding:10px 12px;font-size:12px}.side.b img,.side.c img{width:100%}.amp{font-size:64px;top:calc(44% - 90px)}.ph-note{display:none}}
+
+/* pas info */
+.strip{background:var(--ac);color:var(--acTx);overflow:hidden;white-space:nowrap;transition:background .4s,color .4s}
+.strip div{display:inline-block;padding:12px 0;animation:tick 26s linear infinite;font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:15px}
+.strip span{margin:0 28px}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* MENU jak tablica */
+.menu{background:var(--paper);color:var(--ink)}
+.mtop{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;border-bottom:4px solid var(--ink);padding-bottom:16px}
+.mtop h2 span{color:var(--ac);-webkit-text-stroke:0;transition:color .4s}
+html[data-w=b] .mtop h2 span{color:#111;background:var(--b);padding:0 .08em}
+.mtabs{display:flex;gap:0;border:2px solid var(--ink)}
+.mtabs button{border:0;background:none;padding:10px 16px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;cursor:pointer}
+.mtabs button[aria-pressed=true]{background:var(--ink);color:#fff}
+.board{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:clamp(24px,4vw,60px);margin-top:10px;align-items:start}
+@media(max-width:900px){.board{grid-template-columns:1fr}}
+.rows{list-style:none}
+.rows li{position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:12px;padding:18px 0;border-bottom:1px solid #d9d4cc;cursor:pointer;animation:rin .5s cubic-bezier(.2,1,.3,1) both}
+@keyframes rin{from{opacity:0;transform:translateX(-24px)}}
+.rows .num{font-weight:800;font-size:13px;color:#888;width:26px}
+.rows .nm{font-size:clamp(30px,4vw,48px)}
+.rows .nm small{display:block;font-stretch:100%;font-weight:400;text-transform:none;letter-spacing:0;font-size:15px;line-height:1.35;color:#555;margin-top:6px}
+.rows .pr{font-size:clamp(28px,3.4vw,42px)}
+.rows .tag{display:inline-block;vertical-align:middle;margin-left:10px;font-stretch:100%;font-size:11px;letter-spacing:.08em;background:var(--ink);color:#fff;padding:3px 7px;line-height:1.3}
+.rows li.on .nm,.rows li:hover .nm{color:var(--c)}
+html[data-w=b] .rows li.on .nm,html[data-w=b] .rows li:hover .nm{color:#111;text-decoration:underline;text-decoration-color:var(--b);text-decoration-thickness:6px;text-underline-offset:2px}
+.rows .th{display:none}
+.peek{position:sticky;top:90px}
+.peek figure{position:relative;aspect-ratio:1;overflow:hidden;background:#ddd}
+.peek img{width:100%;height:100%;object-fit:cover;transition:opacity .3s}
+.peek figcaption{position:absolute;left:0;bottom:0;background:rgba(0,0,0,.7);color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px}
+.peek .bt{display:flex;gap:10px;margin-top:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:14px;text-decoration:none;border:2px solid var(--ink);background:none;cursor:pointer;color:inherit}
+.btn.f{background:var(--ink);color:#fff}
+.mnote{margin-top:22px;font-size:13px;color:#666}
+@media(max-width:900px){.peek{display:none}.rows .th{display:block;width:72px;height:72px;object-fit:cover;grid-row:span 1}.rows li{grid-template-columns:72px 1fr auto}.rows .num{display:none}}
+
+/* ZESTAW */
+.combo{background:var(--ink);color:#fff}
+.combo p.l{color:#bbb;margin-top:14px;max-width:46ch}
+.cgrid{display:grid;grid-template-columns:1fr minmax(240px,300px) 1fr;gap:clamp(16px,3vw,36px);margin-top:36px;align-items:stretch}
+@media(max-width:900px){.cgrid{grid-template-columns:1fr}}
+.pick h3{font-size:34px;margin-bottom:10px}
+.pick.b h3{color:var(--b)}.pick.c h3{color:#ff5a4d}
+.opt{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;width:100%;text-align:left;background:none;border:0;border-top:1px solid #333;padding:10px 0;cursor:pointer}
+.opt img{width:56px;height:56px;object-fit:cover;filter:grayscale(.7);transition:filter .2s}
+.opt b{font-weight:700;font-size:17px}
+.opt small{font-weight:800}
+.opt[aria-pressed=true] img{filter:none}
+.pick.b .opt[aria-pressed=true] b{color:var(--b)}
+.pick.c .opt[aria-pressed=true] b{color:#ff5a4d}
+.box{border:3px solid #fff;padding:20px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:8px;position:relative}
+.box .nm{font-size:28px}
+.pair{position:relative;height:130px;margin:6px 0}
+.pair img{position:absolute;top:0;width:120px;height:120px;object-fit:cover;border:4px solid #fff;transition:transform .55s cubic-bezier(.3,1.5,.5,1)}
+.pair img.l{left:calc(50% - 120px);transform:rotate(-6deg) translateX(-14px)}
+.pair img.r{left:50%;transform:rotate(6deg) translateX(14px)}
+.box.hit .pair img.l{transform:rotate(-3deg) translateX(10px)}
+.box.hit .pair img.r{transform:rotate(3deg) translateX(-10px)}
+.old{color:#888;text-decoration:line-through;font-weight:700}
+.tot{font-size:72px;color:var(--ac);transition:color .4s}
+.box .btn{border-color:#fff;color:#fff}
+.box .btn:hover{background:#fff;color:#111}
+
+/* KONTAKT */
+.contact{background:var(--ac);color:var(--acTx);transition:background .4s,color .4s}
+.cg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(24px,4vw,56px);margin-top:26px}
+@media(max-width:880px){.cg{grid-template-columns:1fr}}
+.big{font-size:clamp(40px,5vw,64px)}
+.cg dl{display:grid;gap:14px;margin-top:20px}
+.cg dt{font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:12px;opacity:.75}
+.cg dd{font-size:20px;font-weight:600}
+.contact .btn{border-color:currentColor;margin-top:24px}
+.map{min-height:380px;border:3px solid currentColor}
+.map iframe{display:block;width:100%;height:100%;min-height:380px;border:0}
+footer{padding:28px var(--gut) 40px;color:#999;font-size:13px}
+footer .wrap{display:grid;gap:8px}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s cubic-bezier(.2,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <a class="logo cond" href="#start">Burgerownia <b>&amp;</b> Chińczyk</a>
+  <div class="sw" role="group" aria-label="Wybierz kuchnię"><button type="button" data-w="b" aria-pressed="true">Burgery</button><button type="button" data-w="c" aria-pressed="false">Chińczyk</button></div>
+  <a class="tel" href="tel:+48256419018">25 641 90 18</a>
+</header>
+
+<section class="hero" id="start" aria-label="Dwie kuchnie">
+  <div class="side b">
+    <img src="img/hero-burger.jpg" alt="Smash burger z frytkami" width="1000" height="1002" fetchpriority="high">
+    <span class="ph-note">zdjęcie przykładowe</span>
+    <div class="label"><div class="h cond">Burgery</div><p>Smash burgery prosto z płyty. Rozgniatane na gorąco, z chrupiącymi brzegami.</p><button type="button" data-go="b">Menu burgerów</button></div>
+  </div>
+  <div class="side c">
+    <img src="img/hero-wok.jpg" alt="Kurczak Kung Pao z woka" width="1000" height="950">
+    <span class="steam s1"></span><span class="steam s2"></span><span class="steam s3"></span>
+    <span class="ph-note">zdjęcie przykładowe</span>
+    <div class="label"><div class="h cond">Chińczyk</div><p>Kuchnia z woka: kurczak w sosach, makaron, ryż i sajgonki.</p><button type="button" data-go="c">Menu z woka</button></div>
+  </div>
+  <div class="amp cond" aria-hidden="true">&amp;</div>
+  <div class="seam"><button class="knob" id="knob" type="button" aria-label="Przesuń krawędź między kuchniami"><svg viewBox="0 0 30 30"><path d="M11 8l-6 7 6 7M19 8l6 7-6 7" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+</section>
+
+<div class="strip" aria-hidden="true"><div><span>Garwolin · Kościuszki 49J</span><span>Na miejscu · ogródek · na wynos</span><span>Smash burgery</span><span>Kuchnia z woka</span><span>Zamówienia 25 641 90 18</span><span>Garwolin · Kościuszki 49J</span><span>Na miejscu · ogródek · na wynos</span><span>Smash burgery</span><span>Kuchnia z woka</span><span>Zamówienia 25 641 90 18</span></div></div>
+
+<main>
+<section class="sec menu" id="menu">
+  <div class="wrap">
+    <div class="mtop">
+      <h2 class="cond" id="mt">Menu <span>burgery</span></h2>
+      <div class="mtabs" role="group" aria-label="Kuchnia"><button type="button" data-w="b" aria-pressed="true">Z płyty</button><button type="button" data-w="c" aria-pressed="false">Z woka</button></div>
+    </div>
+    <div class="board">
+      <ul class="rows" id="rows"></ul>
+      <div class="peek"><figure><img id="peek" src="img/smash-cheese.jpg" alt="" width="600" height="600"><figcaption>zdjęcie przykładowe</figcaption></figure>
+        <div class="bt"><a class="btn f" href="tel:+48256419018">Zamów: 25 641 90 18</a></div></div>
+    </div>
+    <p class="mnote">Smash Cheeseburger i Oklahoma Smash są z Państwa postów. Pozostałe nazwy, ceny i zdjęcia są przykładowe: wstawimy Państwa menu i zdjęcia.</p>
+  </div>
+</section>
+
+<section class="sec combo" id="zestaw">
+  <div class="wrap">
+    <div class="rv"><h2 class="cond">Weź oba<br>światy</h2><p class="l">Tylko tutaj: burger i danie z woka w jednym zestawie. Wybierz po jednym z każdej strony.</p></div>
+    <div class="cgrid">
+      <div class="pick b rv"><h3 class="cond">Z płyty</h3><div id="ob"></div></div>
+      <div class="box rv" id="box">
+        <div class="nm cond">Zestaw Dwa Światy</div>
+        <div class="pair"><img class="l" id="il" src="img/smash-cheese.jpg" alt="" width="120" height="120"><img class="r" id="ir" src="img/slodko-kwasny.jpg" alt="" width="120" height="120"></div>
+        <div class="old" id="old"></div>
+        <div class="tot cond" id="tot"></div>
+        <a class="btn" href="tel:+48256419018">Zamów zestaw</a>
+      </div>
+      <div class="pick c rv"><h3 class="cond">Z woka</h3><div id="oc"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="kontakt">
+  <div class="wrap">
+    <h2 class="cond rv">Kościuszki 49J</h2>
+    <div class="cg">
+      <div class="rv">
+        <p class="big cond">Garwolin</p>
+        <dl>
+          <div><dt>Telefon</dt><dd><a href="tel:+48256419018">25 641 90 18</a></dd></div>
+          <div><dt>Jak</dt><dd>na miejscu, w ogródku albo na wynos</dd></div>
+          <div><dt>Social</dt><dd><a href="https://www.facebook.com/burgerownia.chinczyk" rel="noopener">Facebook</a> · <a href="https://www.tiktok.com/@burgerownia.chicz" rel="noopener">TikTok</a></dd></div>
+        </dl>
+        <a class="btn" href="https://www.openstreetmap.org/?mlat=51.90195&amp;mlon=21.61016#map=18/51.90195/21.61016" rel="noopener">Wyznacz trasę</a>
+      </div>
+      <div class="map rv"><iframe title="Mapa: Burgerownia &amp; Chińczyk, Kościuszki 49J, Garwolin" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=21.6040%2C51.8990%2C21.6165%2C51.9050&amp;layer=mapnik&amp;marker=51.90195%2C21.61016"></iframe></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>To makieta nowej strony Burgerownia &amp; Chińczyk. Adres, telefon i nazwy dwóch smash burgerów pochodzą z Państwa Facebooka. Zdjęcia (Wikimedia Commons), pozostałe nazwy i ceny są przykładowe.</p>
+    <p style="opacity:.75">Zdjęcia: Wiki.cullin (CC BY-SA 4.0), Steven G. Johnson (CC BY-SA 3.0), BanjoZebra (CC BY 4.0), Valereee (CC0), bob walker (CC BY-SA 2.0), Jess Sawrey (CC BY 2.0), Miansari66 (CC0), Gaurav Dhwaj Khadka (CC BY-SA 4.0), Choo Yut Shing (CC BY 2.0), via Wikimedia Commons.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,root=document.documentElement;
+var top=document.getElementById('top');function onS(){top.classList.toggle('solid',scrollY>30)}addEventListener('scroll',onS,{passive:true});onS();
+
+var M={
+ b:[{i:'smash-cheese',n:'Smash Cheeseburger',d:'Rozgnieciona wołowina, cheddar, ogórek, cebula.',p:29,t:'klasyk'},
+    {i:'oklahoma',n:'Oklahoma Smash',d:'Cebula wbita w mięso na płycie, karmelizuje się razem z burgerem.',p:31,t:'nowość'},
+    {i:'burger-frytki',n:'Double Smash',d:'Dwa cienkie kotlety, podwójny ser, sos burgerowni.',p:36},
+    {i:'frytki',n:'Frytki',d:'Grube, chrupiące, z solą.',p:12},
+    {i:'krazki',n:'Krążki cebulowe',d:'W panierce, z dipem.',p:15}],
+ c:[{i:'slodko-kwasny',n:'Kurczak słodko-kwaśny',d:'Chrupiący kurczak w sosie z ananasem i papryką, ryż.',p:32,t:'hit'},
+    {i:'kungpao',n:'Kurczak Kung Pao',d:'Pikantny, z orzeszkami ziemnymi i chili.',p:34},
+    {i:'makaron',n:'Makaron smażony',d:'Z warzywami prosto z woka.',p:29},
+    {i:'sajgonki',n:'Sajgonki',d:'Chrupiące, z sosem słodkie chili. 4 sztuki.',p:16}]
+};
+var rows=document.getElementById('rows'),peek=document.getElementById('peek'),mt=document.getElementById('mt');
+function show(i){peek.style.opacity=.3;var im=new Image();im.onload=function(){peek.src=im.src;peek.style.opacity=1};im.src='img/'+i+'.jpg'}
+function render(){var w=root.dataset.w;
+  mt.innerHTML='Menu <span>'+(w==='b'?'z płyty':'z woka')+'</span>';
+  rows.innerHTML=M[w].map(function(d,k){return '<li style="animation-delay:'+(k*.06)+'s" data-i="'+d.i+'"><span class="num">0'+(k+1)+'</span><img class="th" src="img/'+d.i+'.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm cond">'+d.n+(d.t?'<em class="tag">'+d.t+'</em>':'')+'<small>'+d.d+'</small></span><span class="pr cond">'+d.p+' zł</span></li>'}).join('');
+  var lis=rows.querySelectorAll('li');lis[0].classList.add('on');show(M[w][0].i);
+  lis.forEach(function(li){function act(){lis.forEach(function(x){x.classList.toggle('on',x===li)});show(li.dataset.i)}li.onmouseenter=act;li.onclick=act})}
+function setW(w,scroll){root.dataset.w=w;document.querySelectorAll('[data-w]').forEach(function(b){if(b.tagName==='BUTTON')b.setAttribute('aria-pressed',b.dataset.w===w)});render();
+  if(scroll)document.getElementById('menu').scrollIntoView({behavior:reduce?'auto':'smooth'})}
+document.querySelectorAll('button[data-w]').forEach(function(b){b.onclick=function(){setW(b.dataset.w)}});
+document.querySelectorAll('[data-go]').forEach(function(b){b.onclick=function(){setW(b.dataset.go,true)}});
+
+/* krawędź */
+var hero=document.querySelector('.hero'),knob=document.getElementById('knob'),drag=false,touched=false;
+function setX(p){p=Math.max(10,Math.min(90,p));hero.style.setProperty('--x',p+'%')}
+knob.addEventListener('pointerdown',function(e){drag=true;touched=true;knob.setPointerCapture(e.pointerId)});
+knob.addEventListener('pointermove',function(e){if(!drag)return;var r=hero.getBoundingClientRect();setX((e.clientX-r.left)/r.width*100)});
+knob.addEventListener('pointerup',function(){drag=false});
+knob.addEventListener('keydown',function(e){var x=parseFloat(hero.style.getPropertyValue('--x'))||50;if(e.key==='ArrowLeft'){touched=true;setX(x-5)}if(e.key==='ArrowRight'){touched=true;setX(x+5)}});
+if(!reduce){var t0=performance.now();(function wig(n){if(touched)return;var t=(n-t0)/1000;if(t>1){var k=Math.min(1,(t-1)/1.2);setX(50+Math.sin((t-1)*1.1)*10*k)}requestAnimationFrame(wig)})(t0)}
+
+/* zestaw */
+var sel={b:0,c:0},box=document.getElementById('box');
+function opts(w,el){el.innerHTML=M[w].slice(0,w==='b'?3:4).map(function(d,k){return '<button type="button" class="opt" aria-pressed="'+(sel[w]===k)+'" data-k="'+k+'"><img src="img/'+d.i+'.jpg" alt="" width="56" height="56" loading="lazy"><b>'+d.n+'</b><small>'+d.p+' zł</small></button>'}).join('');
+  el.querySelectorAll('button').forEach(function(b){b.onclick=function(){sel[w]=+b.dataset.k;combo()}})}
+function combo(){opts('b',document.getElementById('ob'));opts('c',document.getElementById('oc'));
+  var a=M.b[sel.b],c=M.c[sel.c],full=a.p+c.p;
+  document.getElementById('il').src='img/'+a.i+'.jpg';document.getElementById('ir').src='img/'+c.i+'.jpg';
+  document.getElementById('old').textContent='osobno '+full+' zł';document.getElementById('tot').textContent=Math.round(full*.85)+' zł';
+  box.classList.remove('hit');void box.offsetWidth;box.classList.add('hit')}
+combo();setW('b');
+
+var els=document.querySelectorAll('.rv');
+if(!('IntersectionObserver' in window)||reduce){els.forEach(function(e){e.classList.add('in')});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+els.forEach(function(e){io.observe(e)});
+})();
+</script>
+<script data-goatcounter="https://penia-demo.goatcounter.com/count" data-goatcounter-settings='{"path":"burgerownia-chinczyk"}' async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
